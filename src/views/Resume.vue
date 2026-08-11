@@ -1,191 +1,143 @@
 <template>
-  <div>
-    <h1>Resume</h1>
-
-    <div class="paragraph">
-      I'm <strong>John Matrix</strong>, a former Delta Force operative with lots of experience, lots of training and huge muscles.
-      <br />After graduating from kindergarten, I've been enrolled in the army for 25 years, where I learned to destroy things in an amazing number of ways.
-      <br />I joined the Delta Force because I thought it was Greek lessons, but I quickly adapted to this unexpected environment and became a key element.
-      <br />I love teamwork, but I can also go in solo depending on the mission requirements.
-      <br />
-      <br />Right now I'm trying to find inner peace after I've read some personal development books. I'm looking for a monk job so if you have any opportunity feel free to 
-      <router-link to="/contact">contact me</router-link>.
-      <br />
-      <br />Besides war, I'm passionate about firearms, martial arts, explosions, push-ups and flowers.
-
-      <div style="margin-top:20px; margin-bottom:20px;">
-        <a class="download-link" href="d/resume-en.pdf" target="_blank"><i class="fa fa-download fa-lg fa-fw"></i> Download as PDF 🇬🇧</a>
-        <a class="download-link" href="d/cv-fr.pdf" target="_blank"><i class="fa fa-download fa-lg fa-fw"></i> Télécharger en PDF 🇫🇷</a>
-        <div style="clear:both"></div>
+  <div class="page-shell resume-page">
+    <header class="resume-header">
+      <div class="page-heading">
+        <div class="eyebrow">{{ t('resume.eyebrow') }}</div>
+        <h1 class="page-title">{{ t('resume.title') }}</h1>
+        <p class="page-lead">{{ t('resume.intro') }}</p>
       </div>
-    </div>
-    <div class="photo">
-      <img src="img/resume-photo.png" alt="Photo of John" />
-    </div>
+      <a class="button-primary" href="/d/resume-en.pdf" target="_blank" rel="noopener">
+        <i class="fa fa-download" aria-hidden="true"></i>
+        {{ t('common.downloadResume') }}
+      </a>
+    </header>
 
-    <div style="clear:both"></div>
+    <div class="resume-grid">
+      <div class="resume-content">
+        <section class="resume-section">
+          <div class="section-label"><span>01</span>{{ t('resume.experience') }}</div>
+          <article class="timeline-item">
+            <span class="timeline-node" aria-hidden="true"></span>
+            <div class="timeline-heading">
+              <div>
+                <h2>{{ t('resume.role') }}</h2>
+                <p>{{ t('resume.organization') }}</p>
+              </div>
+              <time>{{ t('resume.period') }}</time>
+            </div>
+            <p class="timeline-body">{{ t('resume.experienceBody') }}</p>
+            <div class="tag-list">
+              <span v-for="skill in ['Python', 'TensorFlow', 'PyTorch', 'NumPy', 'Linux']" :key="skill">{{ skill }}</span>
+            </div>
+          </article>
+        </section>
 
-    <div class="full-content">
-      <h2>Work experience</h2>
+        <section class="resume-section">
+          <div class="section-label"><span>02</span>{{ t('resume.skills') }}</div>
+          <div class="skill-columns">
+            <div>
+              <h2>{{ t('resume.languages') }}</h2>
+              <div class="tag-list large">
+                <span v-for="skill in ['C++', 'C#', 'C', 'Java', 'Python', 'MATLAB', 'Verilog']" :key="skill">{{ skill }}</span>
+              </div>
+            </div>
+            <div>
+              <h2>{{ t('resume.gamedev') }}</h2>
+              <div class="tag-list large">
+                <span v-for="skill in ['Unity', 'Unreal Engine 5', 'Gameplay Ability System', 'Computer Graphics', 'Autodesk Maya']" :key="skill">{{ skill }}</span>
+              </div>
+            </div>
+          </div>
+        </section>
 
-      <h3>Operation Classified - Delta Force</h3>
-      <h4>2018-2019</h4>
+        <section class="resume-section">
+          <div class="section-label"><span>03</span>{{ t('resume.education') }}</div>
+          <article class="education-item">
+            <span class="crest" aria-hidden="true">USC</span>
+            <div><h2>{{ t('resume.usc') }}</h2><strong>{{ t('resume.uscDegree') }}</strong><p>{{ t('resume.uscFocus') }}</p></div>
+          </article>
+          <article class="education-item">
+            <span class="crest" aria-hidden="true">HUST</span>
+            <div><h2>{{ t('resume.hust') }}</h2><strong>{{ t('resume.hustDegree') }}</strong><p>{{ t('resume.hustFocus') }}</p></div>
+          </article>
+        </section>
 
-      <div>It's classified so I can't speak about it.</div>
-
-      <div class="tech-stack">Firearms, knives, grenades, Hummer vehicle, parachute,...</div>
-
-      <h3>Operation Classified - Delta Force</h3>
-      <h4>2015-2017</h4>
-
-      <div>It's classified so I can't speak about it.</div>
-
-      <div class="tech-stack">Even more Firearms, knives, grenades, Hummer vehicle, parachute,...</div>
-
-      <h3>Operation Classified - Delta Force</h3>
-      <h4>2012-2015</h4>
-
-      <div>It's classified so I can't speak about it.</div>
-
-      <div class="tech-stack">Firearms, knives, grenades, Hummer vehicle, parachute,...</div>
-
-      <h2>Skills</h2>
-
-      <div class="skill-set">
-        <h3>Lethal</h3>
-        <SkillRate name="Handguns" :rate="5" />
-        <SkillRate name="Rifles" :rate="5" />
-        <SkillRate name="Shotguns" :rate="5" />
-        <SkillRate name="Machineguns" :rate="5" />
-        <SkillRate name="Missile launchers" :rate="5" />
-        <SkillRate name="Knives" :rate="5" />
-        <SkillRate name="Hand to hand combat" :rate="5" />
+        <section class="resume-section paired-section">
+          <div>
+            <div class="section-label"><span>04</span>{{ t('resume.spoken') }}</div>
+            <p>{{ t('resume.english') }}</p>
+            <p>{{ t('resume.chinese') }}</p>
+          </div>
+          <div>
+            <div class="section-label"><span>05</span>{{ t('resume.beyond') }}</div>
+            <p>{{ t('resume.beyondBody') }}</p>
+          </div>
+        </section>
       </div>
 
-      <div class="skill-set">
-        <h3>Non-lethal</h3>
-        <SkillRate name="Sneaking" :rate="1" />
-        <SkillRate name="Negotiation" :rate="1" />
-        <SkillRate name="Seduction" :rate="1" />
-        <SkillRate name="Sense of humor" :rate="2" />
-      </div>
-      <div style="clear:both" />
-
-      <h2>Education</h2>
-
-      <h3>Kindergarten - 1985</h3>
-      <h4>Kindergarten degree</h4>
-      <div>Specialty in bullying and fighting (58 wins, 58 K-O, 0 losses)</div>
-
-      <h2>Languages</h2>
-
-      <h3>American</h3>
-      <div>Basic knowledge but I know lots of one-liners</div>
-
-      <h3>That's it</h3>
-      <div>Who needs another language when you speak American?</div>
-
-
-      <h2>Besides...</h2>
-      <div>
-        <h3>I ❤️ Violence</h3>
-        <div>I find it really soothing to just shoot at bad guys</div>
-
-        <h3>I 🧡 Sports</h3>
-        <div>I used to be thin but then I ingested 10 kilos of steroids and proteins a day while doing 1000 push-ups.</div>
-
-        <h3>I 💛 Politics</h3>
-        <div>I hope I can have a career here someday but I might have temper issues.</div>
-
-        <h3>I 💚 Flowers</h3>
-        <div>Especially the big ones, with the trunk and leaves.</div>
-
-      </div>
+      <aside class="resume-aside">
+        <div class="resume-portrait"><img src="/img/photo1.JPG" alt="Yuxuan Zhang" /></div>
+        <div class="availability"><i aria-hidden="true"></i>{{ t('about.quest') }}</div>
+        <dl>
+          <div><dt>Email</dt><dd><a href="mailto:yuxuanz7@usc.edu">yuxuanz7@usc.edu</a></dd></div>
+          <div><dt>GitHub</dt><dd><a href="https://github.com/yuxuanz777" target="_blank" rel="noopener">@yuxuanz777</a></dd></div>
+          <div><dt>Location</dt><dd>Los Angeles, CA</dd></div>
+        </dl>
+      </aside>
     </div>
   </div>
 </template>
 
-<script lang="ts">
-import Vue from "vue";
-import SkillRate from "@/components/SkillRate.vue";
-
-export default Vue.extend({
-  name: "Resume",
-  components: {
-    SkillRate,
-  },
-});
+<script setup lang="ts">
+import { useI18n } from '@/i18n'
+const { t } = useI18n()
 </script>
 
-<style scoped>
-h2 {
-  font-weight: 100;
-  font-size: 2em;
-  margin: 0px;
-  padding: 0px;
-  padding-top: 50px;
-}
-h3 {
-  font-weight: 100;
-  font-size: 1.6em;
-  margin: 0px;
-  padding: 0px;
-  padding-top: 30px;
-}
-h4 {
-  font-weight: 100;
-  font-size: 1.3em;
-  margin: 0px;
-  padding: 0px;
-  padding-top: 15px;
-  font-style: italic;
-}
+<style scoped lang="less">
+@import '../css/variables.less';
 
-.paragraph {
-  max-width: 700px;
+.resume-header { display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; margin-bottom: 74px; }
+.resume-header .page-heading { margin: 0; }
+.resume-header .button-primary { flex: 0 0 auto; }
+.resume-grid { display: grid; grid-template-columns: minmax(0, 1fr) 290px; gap: clamp(50px, 8vw, 110px); }
+.resume-section { padding: 0 0 66px; margin-bottom: 66px; border-bottom: 1px solid @borderColor; }
+.section-label { margin-bottom: 32px; display: flex; align-items: center; gap: 14px; color: @goldBright; font-family: @displayFont; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; }
+.section-label span { color: @tealGlow; font-family: @bodyFont; font-size: 0.62rem; }
+.timeline-item { position: relative; padding-left: 28px; border-left: 1px solid rgba(202, 174, 112, 0.25); }
+.timeline-node { position: absolute; left: -5px; top: 7px; width: 9px; height: 9px; transform: rotate(45deg); border: 1px solid @goldBright; background: @bodyBgColor; box-shadow: 0 0 14px rgba(202, 174, 112, 0.35); }
+.timeline-heading { display: flex; justify-content: space-between; gap: 30px; }
+.timeline-heading h2, .skill-columns h2, .education-item h2 { font-size: 1.18rem; }
+.timeline-heading p, .education-item p { margin: 6px 0 0; color: @mutedText; }
+.timeline-heading time { flex: 0 0 auto; color: @tealGlow; font-size: 0.72rem; letter-spacing: 0.08em; }
+.timeline-body { margin: 24px 0; color: @mutedText; line-height: 1.85; }
+.tag-list { display: flex; flex-wrap: wrap; gap: 8px; }
+.tag-list span { padding: 5px 9px; border: 1px solid rgba(202, 174, 112, 0.22); color: #bdb8ac; background: rgba(202, 174, 112, 0.035); font-size: 0.67rem; letter-spacing: 0.05em; }
+.tag-list.large span { padding: 8px 11px; }
+.skill-columns { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+.skill-columns h2 { margin-bottom: 18px; }
+.education-item { padding: 24px 0; display: grid; grid-template-columns: 60px 1fr; gap: 22px; border-bottom: 1px solid rgba(202, 174, 112, 0.1); }
+.crest { position: relative; z-index: 0; width: 56px; height: 56px; display: grid; place-items: center; color: @goldBright; font-size: 0.58rem; }
+.crest::before { content: ''; position: absolute; inset: 8px; z-index: -1; transform: rotate(45deg); border: 1px solid rgba(202, 174, 112, 0.4); background: rgba(202, 174, 112, 0.035); }
+.education-item strong { display: block; margin-top: 6px; color: @tealGlow; font-size: 0.75rem; font-weight: 500; }
+.paired-section { display: grid; grid-template-columns: 1fr 1fr; gap: 54px; border: 0; }
+.paired-section p { color: @mutedText; line-height: 1.75; }
+.resume-aside { position: sticky; top: 115px; align-self: start; padding: 14px; border: 1px solid @borderColor; background: rgba(14, 18, 16, 0.7); }
+.resume-portrait { aspect-ratio: 1; overflow: hidden; }
+.resume-portrait img { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.7) contrast(1.05); }
+.availability { margin: 15px 0; padding: 12px; display: flex; align-items: center; gap: 9px; color: #b8c9c4; background: rgba(89, 170, 164, 0.08); font-size: 0.7rem; line-height: 1.5; }
+.availability i { width: 7px; height: 7px; flex: 0 0 auto; border-radius: 50%; background: @tealGlow; box-shadow: 0 0 10px @tealGlow; }
+.resume-aside dl { margin: 0; padding: 4px 8px 10px; }
+.resume-aside dl div { padding: 12px 0; border-bottom: 1px solid rgba(202, 174, 112, 0.1); }
+.resume-aside dt { color: @mutedText; font-size: 0.62rem; letter-spacing: 0.12em; text-transform: uppercase; }
+.resume-aside dd { margin: 4px 0 0; font-size: 0.76rem; overflow-wrap: anywhere; }
+
+@media (max-width: 900px) {
+  .resume-grid { grid-template-columns: 1fr; }
+  .resume-aside { position: static; width: min(100%, 360px); grid-row: 1; }
 }
-
-.download-link {
-  float:left;
-  margin-right: 50px;
-}
-
-.full-content div {
-  max-width: 800px;
-}
-
-.skill-set h3 {
-  padding-bottom: 10px;
-}
-
-.photo img {
-  height: 300px;
-  width: 300px;
-}
-
-.tech-stack {
-  font-style: italic;
-}
-
-.photo {
-  margin-top: 50px;
-  text-align: center;
-}
-
-@media only screen and (min-width: 620px){
-  .paragraph {
-    float: left;
-  }
-
-  .photo {
-    float: left;
-    padding: 30px;
-    padding-left: 80px;
-  }
-
-  .skill-set {
-    float: left;
-    padding-right: 60px; 
-  }
+@media (max-width: 650px) {
+  .resume-header { align-items: flex-start; flex-direction: column; margin-bottom: 52px; }
+  .timeline-heading, .skill-columns, .paired-section { grid-template-columns: 1fr; flex-direction: column; }
+  .skill-columns, .paired-section { display: grid; gap: 36px; }
 }
 </style>

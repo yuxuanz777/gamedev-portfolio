@@ -1,33 +1,19 @@
 <template>
-  <div>
-    <h1>Stuff</h1>
-
-    <div style="margin-bottom: 30px;">
-      The following are some stuff I've made or heavily contributed to.
-    </div>
-
-    <ProjectsList v-bind:projects="projects" />
-
-    <div style="margin-top: 20px;">
-      There is more to see on <a target="_blank" href="https://someexternalwebsite.com">some external website</a>
-    </div>
+  <div class="page-shell">
+    <header class="page-heading">
+      <div class="eyebrow">{{ t('games.eyebrow') }}</div>
+      <h1 class="page-title">{{ t('games.title') }}</h1>
+      <p class="page-lead">{{ t('games.intro') }}</p>
+    </header>
+    <ProjectsList :projects="projects" />
   </div>
 </template>
 
-<script lang="ts">
-import Vue from "vue";
-import ProjectsList from "@/components/ProjectsList.vue";
-import gameProjectsData from "@/data/GameProjectsData.ts";
+<script setup lang="ts">
+import ProjectsList from '@/components/ProjectsList.vue'
+import gameProjectsData from '@/data/GameProjectsData'
+import { useI18n } from '@/i18n'
 
-export default Vue.extend({
-  name: "GameProjects",
-  components: {
-    ProjectsList,
-  },
-  data: function () {
-    return {
-      projects: gameProjectsData,
-    };
-  },
-});
+const projects = gameProjectsData
+const { t } = useI18n()
 </script>

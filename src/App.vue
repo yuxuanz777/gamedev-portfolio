@@ -1,122 +1,279 @@
 <template>
-  <div id="app">
-    
-    <link rel="stylesheet" href="@/assets/projects/projects.css" type="text/css">
-
-    <Header />
-    <div class="main">
-      <transition name="fade" mode="out-in">
-        <router-view/>
-      </transition>
-    </div>
-    <Footer />
+  <div id="app" class="app-shell">
+    <a class="skip-link" href="#main-content">{{ t('common.skip') }}</a>
+    <div class="ambient ambient-one" aria-hidden="true"></div>
+    <div class="ambient ambient-two" aria-hidden="true"></div>
+    <SiteHeader />
+    <main id="main-content" class="main">
+      <router-view v-slot="{ Component }">
+        <transition name="page" mode="out-in">
+          <component :is="Component" />
+        </transition>
+      </router-view>
+    </main>
+    <SiteFooter />
   </div>
 </template>
 
-<script lang="ts">
-import Vue from 'vue';
-import Header from './components/Header.vue';
-import Footer from './components/Footer.vue';
-import Helpers from './helpers';
+<script setup lang="ts">
+import SiteHeader from './components/Header.vue'
+import SiteFooter from './components/Footer.vue'
+import { useI18n } from './i18n'
 
-export default Vue.extend({
-  name: 'App',
-  components: {
-    Header, Footer
-  }
-});
-
-// Preload heavy images or gifs that are used in other pages
-Helpers.preloadImages([
-  "img/projects/project-1-icon.png",
-  "img/projects/project-2-icon.png",
-  "img/projects/project-3-icon.png"
-]);
-
+const { t } = useI18n()
 </script>
 
 <style lang="less">
-
 @import './css/projects.less';
 @import './css/variables.less';
 
-html, body {
-  margin: 0px;
-  background-color: @bodyBgColor;
+:root {
+  color-scheme: dark;
+  font-synthesis: none;
 }
 
-#app {
-  background-color: @contentBgColor;
+* { box-sizing: border-box; }
+
+html {
+  min-width: 320px;
+  background: @bodyBgColor;
+  scroll-behavior: smooth;
+}
+
+body {
+  min-width: 320px;
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(circle at 18% 12%, rgba(52, 98, 88, 0.12), transparent 30%),
+    radial-gradient(circle at 82% 36%, rgba(143, 111, 53, 0.08), transparent 34%),
+    @bodyBgColor;
   color: @textColor;
-
-  font-family: 'Karla', Helvetica, Arial, sans-serif;
+  font-family: @bodyFont;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  font-size: 1.1em;
-  line-height: 1.6em;
-  text-align: justify;
+  text-rendering: optimizeLegibility;
 }
 
-h1, h2, h3, h4, h5 {
-  text-align: left;
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.22;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
+  background-size: 46px 46px;
+  mask-image: radial-gradient(circle at center, black, transparent 82%);
 }
+
+button,
+a { -webkit-tap-highlight-color: transparent; }
 
 a {
-  color: @textColor;
+  color: @goldBright;
   text-decoration: none;
-  opacity: 0.5;
-}
-a:hover, .router-link-exact-active {
-  opacity: 1;
+  transition: color 180ms ease, opacity 180ms ease;
 }
 
-h1 {
-  font-size: 2.5em;
-  font-weight: 100;
-  margin-top: -10px;
-  margin-bottom: 40px;
-  margin-left: -2px; // hack to make it "seem" more aligned with smaller text content
-  line-height: 1.1em;
+a:hover { color: #f2d89f; }
+
+button,
+a,
+[tabindex] {
+  outline-color: @tealGlow;
+  outline-offset: 4px;
+}
+
+img,
+video { max-width: 100%; }
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  margin: 0;
+  color: @headingColor;
+  font-family: @displayFont;
+  font-weight: 600;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+p { text-wrap: pretty; }
+
+.app-shell {
+  position: relative;
+  min-height: 100vh;
+  overflow: clip;
+}
+
+.ambient {
+  position: fixed;
+  z-index: -1;
+  width: 420px;
+  height: 420px;
+  border-radius: 50%;
+  filter: blur(120px);
+  pointer-events: none;
+}
+
+.ambient-one {
+  top: 18%;
+  left: -260px;
+  background: rgba(41, 114, 108, 0.13);
+}
+
+.ambient-two {
+  right: -280px;
+  bottom: 12%;
+  background: rgba(155, 119, 57, 0.09);
 }
 
 .main {
-    padding: 12px;
-  }
-
-@media only screen and (min-width: 620px){
-
-  #app {
-    text-align: left;
-    line-height: 1.8em;
-  }
-
-  h1 {
-    margin-top: 0.67em;
-    margin-bottom: 80px;
-    line-height: 0.7em;
-  }
-
-  .main {
-    padding: 0px 40px 40px 180px;
-  }
-
-  .main, .header, .footer {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
+  position: relative;
+  z-index: 1;
+  min-height: calc(100vh - 250px);
 }
 
-.fade-enter-active,
-.fade-leave-active {
-  transition-duration: 0.2s;
-  transition-property: opacity;
-  transition-timing-function: ease;
+.page-shell {
+  width: min(@contentWidth, calc(100% - 56px));
+  margin: 0 auto;
+  padding: 88px 0 40px;
 }
 
-.fade-enter,
-.fade-leave-active {
-  opacity: 0
+.page-heading {
+  max-width: 760px;
+  margin-bottom: 54px;
 }
 
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 16px;
+  color: @tealGlow;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.eyebrow::before {
+  content: '';
+  width: 30px;
+  height: 1px;
+  background: @tealGlow;
+  box-shadow: 0 0 12px @tealGlow;
+}
+
+.page-title {
+  font-size: clamp(2.5rem, 6vw, 5.4rem);
+  letter-spacing: -0.035em;
+}
+
+.page-lead {
+  max-width: 680px;
+  margin: 22px 0 0;
+  color: @mutedText;
+  font-size: clamp(1rem, 1.6vw, 1.18rem);
+  line-height: 1.8;
+}
+
+.button-primary,
+.button-ghost {
+  min-height: 48px;
+  padding: 0 22px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border: 1px solid @gold;
+  color: #10120f;
+  background: linear-gradient(135deg, @goldBright, #aa8445);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  opacity: 1;
+  cursor: pointer;
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.button-primary:hover {
+  color: #080a08;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 34px rgba(202, 174, 112, 0.18);
+}
+
+.button-ghost {
+  color: @goldBright;
+  background: rgba(8, 12, 10, 0.52);
+}
+
+.button-ghost:hover {
+  color: #f1d79d;
+  border-color: @goldBright;
+  background: rgba(202, 174, 112, 0.09);
+  transform: translateY(-2px);
+}
+
+.rune-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: min(300px, 100%);
+  color: @gold;
+}
+
+.rune-divider::before,
+.rune-divider::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(202, 174, 112, 0.58));
+}
+
+.rune-divider::after { transform: rotate(180deg); }
+
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 100;
+  padding: 10px 14px;
+  color: #080a08;
+  background: @goldBright;
+  transform: translateY(-160%);
+}
+
+.skip-link:focus { transform: translateY(0); }
+
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 220ms ease, transform 220ms ease;
+}
+
+.page-enter-from { opacity: 0; transform: translateY(8px); }
+.page-leave-to { opacity: 0; transform: translateY(-5px); }
+
+@media (max-width: 720px) {
+  .page-shell {
+    width: min(100% - 36px, @contentWidth);
+    padding-top: 58px;
+  }
+
+  .page-heading { margin-bottom: 38px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
 </style>

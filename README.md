@@ -1,46 +1,60 @@
-# What is this ?
-This is a portfolio template that you can use to showcase your work, especially if it's comprised of projects that should be shown in a very visual way.
+# Yuxuan Zhang — Game Developer Portfolio
 
-Looking for a game developer job, I needed a portfolio to present my work to recruiters. I found a lot of custom made portfolios, but no easy to use template unless I used Wordpress. Which was overkill to me because a static HTML/JS website would do fine.
+A bilingual, dark-fantasy portfolio for showcasing game development, engine work, and research projects.
 
-So i created my own using VueJS, keeping in mind that I wanted it to be easily customisable so other people can use this as a base to make their own. It's very simple, static, fast and responsive.
+## Stack
 
-For a real world use case, check my portfolio: https://scheefer.me
+- Vue 3 and Vue Router 4
+- TypeScript
+- Vite
+- Less
+- GitHub Pages-compatible hash routing
 
+## Local development
 
-# How to use
+```bash
+npm install
+npm run dev
+```
 
-1. Install
+The development server prints its local URL in the terminal.
 
-    - Fork or duplicate the repository
-    - npm install
-    - npm run serve
-    - If any issue with serve, please read this: https://stackoverflow.com/questions/70582072/npm-run-fails-with-err-ossl-evp-unsupported For Windows Powershell, you can fix with `$env:NODE_OPTIONS = '--openssl-legacy-provider'` then `npm run serve`
+## Quality checks
 
-2. Customize
-* For the content
-    - Except for the projects pages, everything is static HTML that you can edit directly in the views and components files
-    - For the projects pages, the page is dynamically populated at runtime using data stored in Typescript files (data/GameProjectsData.ts and data/OtherProjectsData.ts). Make the changes directly in these .ts files
-    - Static files (images, icons, downloadables,..) should be placed in /public folder.
-    - Make the necessary changes in the .env file (this is mostly the site metadata). You need to "npm run serve" again when updating this file.
+Run the complete validation suite before publishing:
 
-* For the style
-    - The basic colors can be edited in the css/variables.less file.
-    - The rest of the CSS can be edited, if need be, directly inside each view and component.
-    - If you place custom CSS in your projects HTML data (that will be displayed in an overlay dialog), you must add the definition for this CSS in the css/projects.less file
+```bash
+npm run check
+```
 
-* Additional info & optimizations
-    - Images will be loaded on-demand when you switch tabs. It means if you have big images or animated gifs, you may want to preload them so the user sees them faster when they change tabs. To do this, you can call Helpers.preloadImages in app.vue to preload heavy images.
+This runs TypeScript checking, ESLint, public-asset validation, and a production build.
 
-3. Deploy
+Individual commands are also available:
 
-    - npm run build
-    - copy the content of the "dist" folder (created by "npm run build") to the publish location.
-    - Check this example if you want to deploy to GitHub pages or some other major static content host: https://cli.vuejs.org/guide/deployment.html#github-pages
+```bash
+npm run typecheck
+npm run lint
+npm run check:assets
+npm run build
+npm run preview
+```
 
+## Content
 
-# License
+- Shared English and Chinese interface copy: `src/i18n.ts`
+- Game project content: `src/data/GameProjectsData.ts`
+- Other project content: `src/data/OtherProjectsData.ts`
+- Static images, videos, PDFs, and icons: `public/`
+- High-resolution editable artwork sources: `artwork-source/` (not copied into the production build)
 
-This is GNU LGPL, check the LICENSE file.
+The selected language is stored locally in the browser. Project detail state is represented by a URL query parameter so a selected project can be shared or restored.
 
-Please consider keeping the link to this repository at the bottom of your portfolio, so other people can find and use this template too. Of course it's not mandatory though.
+## Deployment
+
+`npm run build` creates the production site in `dist/`.
+
+The included `deploy.sh` rebuilds the site and force-pushes the generated `dist` content to `yuxuanz777/yuxuanz777.github.io`. Review the Git status and destination carefully before running it.
+
+## Credits
+
+The project began from the open-source `schouffy/gamedev-portfolio` template and has since been substantially redesigned and migrated.

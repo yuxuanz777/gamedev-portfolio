@@ -1,52 +1,100 @@
 <template>
-  <div class="footer">
-    
-    <div class="left"><a href="https://github.com/schouffy/gamedev-portfolio" target="blank">Portfolio</a> by schouffy</div>
-    <div class="right">Reach me at <a href="mailto:my@email.com">my@email.com</a> or <router-link to="/contact">through here</router-link></div>
-  </div>
+  <footer class="footer">
+    <div class="footer-ornament" aria-hidden="true"><span>◆</span></div>
+    <div class="footer-inner">
+      <div>
+        <strong>Yuxuan Zhang</strong>
+        <p>{{ t('footer.line') }}</p>
+      </div>
+      <div class="footer-links">
+        <a href="https://github.com/yuxuanz777" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://linkedin.com/in/yuxuanz777" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://9tchaser.itch.io" target="_blank" rel="noopener">itch.io</a>
+        <router-link to="/contact">{{ t('nav.contact') }}</router-link>
+      </div>
+    </div>
+  </footer>
 </template>
 
-<script lang="ts">
-import Vue from "vue";
+<script setup lang="ts">
+import { useI18n } from '@/i18n'
 
-export default Vue.extend({
-  name: "Footer"
-});
+const { t } = useI18n()
 </script>
 
 <style scoped lang="less">
-
 @import '../css/variables.less';
 
 .footer {
-  background-color: @bodyBgColor;
-  width: 100%;
-  font-size: 0.8em;
-  opacity: 0.7;
-  padding-bottom: 30px;
+  position: relative;
+  margin-top: 80px;
+  border-top: 1px solid rgba(202, 174, 112, 0.16);
+  background: rgba(5, 8, 7, 0.72);
 }
 
-.left, .right {
-    padding-top: 10px;
-    text-align: center;
-  }
+.footer-ornament {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 110px;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, @gold, transparent);
+  transform: translateX(-50%);
+}
 
-@media only screen and (min-width: 620px){
+.footer-ornament span {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  color: @goldBright;
+  font-size: 9px;
+  transform: translate(-50%, -50%);
+}
 
-  .footer {
-    padding: 0;
-  }
+.footer-inner {
+  max-width: @contentWidth;
+  margin: 0 auto;
+  padding: 42px 28px 48px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 32px;
+}
 
-  .left, .right {
-    padding: 20px;
-  }
+.footer strong {
+  color: @goldBright;
+  font-family: @displayFont;
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
 
-  .left {
-    float: left;
-  }
+.footer p {
+  margin: 5px 0 0;
+  color: @mutedText;
+  font-size: 0.78rem;
+}
 
-  .right {
-    float:right;
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 22px;
+}
+
+.footer-links a {
+  color: @mutedText;
+  opacity: 1;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.footer-links a:hover { color: @goldBright; }
+
+@media (max-width: 680px) {
+  .footer-inner {
+    align-items: flex-start;
+    flex-direction: column;
   }
 }
 </style>
