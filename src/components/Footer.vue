@@ -3,7 +3,7 @@
     <div class="footer-ornament" aria-hidden="true"><span>◆</span></div>
     <div class="footer-inner">
       <div>
-        <strong>Yuxuan Zhang</strong>
+        <strong>Seven's world</strong>
         <p>{{ t('footer.line') }}</p>
       </div>
       <div class="footer-links">

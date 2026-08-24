@@ -5,7 +5,7 @@
       <div class="hero-vignette" aria-hidden="true"></div>
       <div class="hero-content">
         <div class="eyebrow">{{ t('about.eyebrow') }}</div>
-        <h1>Yuxuan Zhang</h1>
+        <h1>Seven's World</h1>
         <h2>{{ t('about.title') }}</h2>
         <p>{{ t('about.lead') }}</p>
 
@@ -39,7 +39,8 @@
           <span class="frame-corner corner-two" aria-hidden="true"></span>
         </div>
         <div class="path-copy">
-          <div class="eyebrow">Origin</div>
+          <div class="eyebrow">INTRO
+</div>
           <h2>{{ t('about.pathTitle') }}</h2>
           <p>{{ t('about.pathBody') }}</p>
           <div class="rune-divider" aria-hidden="true">◆</div>

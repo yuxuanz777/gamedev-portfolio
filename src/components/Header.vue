@@ -4,8 +4,9 @@
       <router-link class="brand" to="/" aria-label="Yuxuan Zhang home">
         <span class="brand-mark" aria-hidden="true"><span>Y</span></span>
         <span class="brand-copy">
-          <strong>Yuxuan Zhang</strong>
-          <small>Game Developer</small>
+          <strong>yuxuan zhang
+</strong>
+          <small>Game designer & Developer</small>
         </span>
       </router-link>
 
