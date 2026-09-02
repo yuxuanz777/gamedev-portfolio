@@ -31,7 +31,7 @@ export default [
     true,
     true,
     ['Engine', 'C++', 'Graphics'],
-    '2025'
+    'Aug — Dec 2025'
   ),
   new ProjectData(
     'mini-games',
