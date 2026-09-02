@@ -4,7 +4,7 @@ export default [
   new ProjectData(
     'shimmer',
     { en: 'Shimmer · Unity & C#', zh: 'Shimmer · Unity 与 C#' },
-    '/img/projects/shimmer-cover.jpg',
+    '/img/projects/shimmer-original-cover.jpg',
     {
       en: `
         <div class="paragraph"><strong>Shimmer</strong> is a 2D platforming adventure created for TapTap’s 21 Days Game Jam around the theme “BUG.” Jumping and dashing let the player cross between layers of reality, avoid enemy attacks, and turn spatial perception into a combat tool.</div>
