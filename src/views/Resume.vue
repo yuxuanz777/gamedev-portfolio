@@ -20,12 +20,31 @@
             <span class="timeline-node" aria-hidden="true"></span>
             <div class="timeline-heading">
               <div>
-                <h2>{{ t('resume.role') }}</h2>
-                <p>{{ t('resume.organization') }}</p>
+                <h2>{{ t('resume.neteaseRole') }}</h2>
+                <p>{{ t('resume.neteaseOrganization') }}</p>
               </div>
-              <time>{{ t('resume.period') }}</time>
+              <time>{{ t('resume.neteasePeriod') }}</time>
             </div>
-            <p class="timeline-body">{{ t('resume.experienceBody') }}</p>
+            <ul class="timeline-points">
+              <li>{{ t('resume.neteasePoint1') }}</li>
+              <li>{{ t('resume.neteasePoint2') }}</li>
+              <li>{{ t('resume.neteasePoint3') }}</li>
+            </ul>
+            <div class="tag-list">
+              <span v-for="skill in ['Combat Design', 'MMO', '3C', 'Skill Systems', 'Cross-functional']" :key="skill">{{ skill }}</span>
+            </div>
+          </article>
+
+          <article class="timeline-item">
+            <span class="timeline-node" aria-hidden="true"></span>
+            <div class="timeline-heading">
+              <div>
+                <h2>{{ t('resume.researchRole') }}</h2>
+                <p>{{ t('resume.researchOrganization') }}</p>
+              </div>
+              <time>{{ t('resume.researchPeriod') }}</time>
+            </div>
+            <p class="timeline-body">{{ t('resume.researchBody') }}</p>
             <div class="tag-list">
               <span v-for="skill in ['Python', 'TensorFlow', 'PyTorch', 'NumPy', 'Linux']" :key="skill">{{ skill }}</span>
             </div>
@@ -79,9 +98,9 @@
         <div class="resume-portrait"><img src="/img/photo1.JPG" alt="Yuxuan Zhang" /></div>
         <div class="availability"><i aria-hidden="true"></i>{{ t('about.quest') }}</div>
         <dl>
-          <div><dt>Email</dt><dd><a href="mailto:yuxuanz7@usc.edu">yuxuanz7@usc.edu</a></dd></div>
-          <div><dt>GitHub</dt><dd><a href="https://github.com/yuxuanz777" target="_blank" rel="noopener">@yuxuanz777</a></dd></div>
-          <div><dt>Location</dt><dd>Los Angeles, CA</dd></div>
+          <div><dt>{{ t('resume.emailLabel') }}</dt><dd><a href="mailto:yuxuanz7@usc.edu">yuxuanz7@usc.edu</a></dd></div>
+          <div><dt>{{ t('resume.githubLabel') }}</dt><dd><a href="https://github.com/yuxuanz777" target="_blank" rel="noopener">@yuxuanz777</a></dd></div>
+          <div><dt>{{ t('resume.locationLabel') }}</dt><dd>{{ t('resume.locationValue') }}</dd></div>
         </dl>
       </aside>
     </div>
@@ -104,12 +123,15 @@ const { t } = useI18n()
 .section-label { margin-bottom: 32px; display: flex; align-items: center; gap: 14px; color: @goldBright; font-family: @displayFont; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; }
 .section-label span { color: @tealGlow; font-family: @bodyFont; font-size: 0.62rem; }
 .timeline-item { position: relative; padding-left: 28px; border-left: 1px solid rgba(202, 174, 112, 0.25); }
+.timeline-item + .timeline-item { margin-top: 44px; }
 .timeline-node { position: absolute; left: -5px; top: 7px; width: 9px; height: 9px; transform: rotate(45deg); border: 1px solid @goldBright; background: @bodyBgColor; box-shadow: 0 0 14px rgba(202, 174, 112, 0.35); }
 .timeline-heading { display: flex; justify-content: space-between; gap: 30px; }
 .timeline-heading h2, .skill-columns h2, .education-item h2 { font-size: 1.18rem; }
 .timeline-heading p, .education-item p { margin: 6px 0 0; color: @mutedText; }
 .timeline-heading time { flex: 0 0 auto; color: @tealGlow; font-size: 0.72rem; letter-spacing: 0.08em; }
 .timeline-body { margin: 24px 0; color: @mutedText; line-height: 1.85; }
+.timeline-points { margin: 24px 0; padding-left: 20px; color: @mutedText; line-height: 1.75; }
+.timeline-points li + li { margin-top: 10px; }
 .tag-list { display: flex; flex-wrap: wrap; gap: 8px; }
 .tag-list span { padding: 5px 9px; border: 1px solid rgba(202, 174, 112, 0.22); color: #bdb8ac; background: rgba(202, 174, 112, 0.035); font-size: 0.67rem; letter-spacing: 0.05em; }
 .tag-list.large span { padding: 8px 11px; }

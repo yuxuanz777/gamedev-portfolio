@@ -76,35 +76,35 @@ export default [
     '2025'
   ),
   new ProjectData(
-    'sword-of-frenzy',
-    { en: 'Sword of Frenzy · Unreal & C++', zh: '狂乱之剑 · Unreal 与 C++' },
-    '/img/projects/sword-of-frenzy-icon.png',
+    'return-to-azeroth',
+    { en: 'Return to Azeroth · Unreal Engine 5', zh: '重返艾泽拉斯 · Unreal Engine 5' },
+    '/img/projects/return-to-azeroth-cover.jpg',
     {
       en: `
-        <div class="paragraph"><strong>Sword of Frenzy</strong> is an early-stage 3D action RPG and my deep dive into Unreal Engine gameplay architecture. I deliberately avoided the built-in third-person template and created the character foundation from C++.</div>
-        <div class="paragraph"><strong>Engineering highlights</strong><ul>
-          <li>Custom character controller with lock-on camera, free eight-direction movement, jumping, and dodging</li>
-          <li>Gameplay Ability System features for counterattacks, weapon buffs, attributes, and effect triggers</li>
-          <li>Animation state machines and retargeted Paragon assets</li>
-          <li>Smooth full-body, directional locomotion, and combat transitions</li>
+        <div class="paragraph"><strong>Return to Azeroth</strong> is a Warcraft fan-made action RPG that reframes the IP in a Souls-like combat structure. I own both the design and technical implementation of this personal Unreal Engine 5 project.</div>
+        <div class="paragraph"><strong>Design & engineering highlights</strong><ul>
+          <li>Built responsive character 3C, dynamic combo attacks, parry, and multidirectional dodge through rapid Blueprint prototyping followed by C++ optimization</li>
+          <li>Used Gameplay Ability System for scalable ability activation, Attribute Sets, and Gameplay Effects</li>
+          <li>Created boss phases and enemy AI with Behavior Trees and State Trees</li>
+          <li>Authored the design and technical documentation that keeps the project architecture and combat goals aligned</li>
         </ul></div>
-        <div class="paragraph center"><img class="pc-screenshot" src="/img/projects/sword-of-frenzy-icon.png" alt="Sword of Frenzy gameplay preview" /></div>
-        <div class="paragraph"><div class="notice"><a target="_blank" rel="noopener" href="https://gaudy-hearing-580.notion.site/287b6ac01978804d8323cd5b01b8b825?v=287b6ac0197880a784fc000c80ced085">Read the development blog</a></div></div>`,
+        <div class="paragraph center"><iframe width="560" height="315" src="https://player.bilibili.com/player.html?bvid=BV1QTcTzREjj&autoplay=0" title="Return to Azeroth gameplay demo" allowfullscreen></iframe></div>
+        <div class="paragraph"><div class="notice"><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1QTcTzREjj/">Watch the video demo</a></div></div>`,
       zh: `
-        <div class="paragraph"><strong>狂乱之剑</strong> 是一个处于早期开发阶段的 3D 动作角色扮演项目，也是我深入学习 Unreal Engine 玩法架构的实践。我没有使用内置第三人称模板，而是从 C++ 开始搭建完整角色基础。</div>
-        <div class="paragraph"><strong>工程亮点</strong><ul>
-          <li>自定义角色控制器，包括锁定镜头、自由八方向移动、跳跃与闪避</li>
-          <li>使用 Gameplay Ability System 实现反击、武器强化、属性与效果触发</li>
-          <li>搭建动画状态机并重定向 Paragon 动画资源</li>
-          <li>实现流畅的全身动画、方向移动与战斗过渡</li>
+        <div class="paragraph"><strong>重返艾泽拉斯</strong> 是一款魔兽同人动作角色扮演游戏，以类魂战斗框架重新演绎原作内容。这个 Unreal Engine 5 个人项目的设计与技术实现均由我负责。</div>
+        <div class="paragraph"><strong>设计与工程亮点</strong><ul>
+          <li>先使用蓝图快速验证，再以 C++ 优化，完成灵敏的角色 3C、动态连招、弹反与多方向闪避</li>
+          <li>使用 Gameplay Ability System 搭建可扩展的技能激活、属性集与 Gameplay Effects</li>
+          <li>结合行为树与状态树实现 Boss 阶段和敌人 AI</li>
+          <li>编写设计与技术文档，使项目架构始终服务于战斗体验目标</li>
         </ul></div>
-        <div class="paragraph center"><img class="pc-screenshot" src="/img/projects/sword-of-frenzy-icon.png" alt="狂乱之剑游戏预览" /></div>
-        <div class="paragraph"><div class="notice"><a target="_blank" rel="noopener" href="https://gaudy-hearing-580.notion.site/287b6ac01978804d8323cd5b01b8b825?v=287b6ac0197880a784fc000c80ced085">阅读开发日志</a></div></div>`
+        <div class="paragraph center"><iframe width="560" height="315" src="https://player.bilibili.com/player.html?bvid=BV1QTcTzREjj&autoplay=0" title="重返艾泽拉斯游戏演示" allowfullscreen></iframe></div>
+        <div class="paragraph"><div class="notice"><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1QTcTzREjj/">观看视频演示</a></div></div>`
     },
-    '#b68743',
+    '#6aa69b',
     false,
-    false,
-    ['Unreal', 'C++', 'GAS'],
-    '2025 —'
+    true,
+    ['Unreal Engine 5', 'C++', 'Blueprint', 'GAS'],
+    '2026 —'
   )
 ]

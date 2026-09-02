@@ -27,9 +27,21 @@
 
     <div class="page-shell home-content">
       <section class="stats" :aria-label="locale === 'zh' ? '作品概览' : 'Portfolio highlights'">
-        <div><strong>6+</strong><span>{{ t('about.gamesStat') }}</span></div>
+        <div><strong>3+</strong><span>{{ t('about.gamesStat') }}</span></div>
         <div><strong>2</strong><span>{{ t('about.enginesStat') }}</span></div>
         <div><strong>1</strong><span>{{ t('about.researchStat') }}</span></div>
+      </section>
+
+      <section class="industry-callout">
+        <div class="eyebrow">{{ t('about.industryEyebrow') }}</div>
+        <div class="industry-heading">
+          <div>
+            <h2>{{ t('about.industryRole') }}</h2>
+            <strong>{{ t('about.industryProject') }}</strong>
+          </div>
+          <span>2026</span>
+        </div>
+        <p>{{ t('about.industryBody') }}</p>
       </section>
 
       <section class="path-section">
@@ -39,8 +51,7 @@
           <span class="frame-corner corner-two" aria-hidden="true"></span>
         </div>
         <div class="path-copy">
-          <div class="eyebrow">INTRO
-</div>
+          <div class="eyebrow">{{ t('about.introEyebrow') }}</div>
           <h2>{{ t('about.pathTitle') }}</h2>
           <p>{{ t('about.pathBody') }}</p>
           <div class="rune-divider" aria-hidden="true">◆</div>
@@ -49,7 +60,7 @@
 
       <section class="craft-section">
         <div class="section-heading">
-          <div class="eyebrow">Arsenal</div>
+          <div class="eyebrow">{{ t('about.craftEyebrow') }}</div>
           <h2>{{ t('about.craftTitle') }}</h2>
         </div>
         <div class="craft-grid">
@@ -76,7 +87,7 @@
 
       <section class="featured-callout">
         <div>
-          <div class="eyebrow">Selected Work</div>
+          <div class="eyebrow">{{ t('about.featuredEyebrow') }}</div>
           <h2>{{ t('about.featuredTitle') }}</h2>
           <p>{{ t('about.featuredLead') }}</p>
         </div>
@@ -210,6 +221,26 @@ const { locale, t } = useI18n()
 .stats strong { color: @goldBright; font-family: @displayFont; font-size: 2.35rem; }
 .stats span { color: @mutedText; font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; }
 
+.industry-callout {
+  margin-top: 76px;
+  padding: 42px 48px;
+  border: 1px solid @borderColor;
+  background: radial-gradient(circle at 90% 10%, rgba(89, 170, 164, 0.12), transparent 38%), rgba(13, 17, 15, 0.84);
+}
+
+.industry-heading {
+  margin-top: 12px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 32px;
+}
+
+.industry-heading h2 { font-size: clamp(1.65rem, 3vw, 2.65rem); }
+.industry-heading strong { display: block; margin-top: 8px; color: @tealGlow; font-size: 0.82rem; letter-spacing: 0.08em; }
+.industry-heading > span { color: @goldBright; font-family: @displayFont; font-size: 1.3rem; }
+.industry-callout p { max-width: 840px; margin: 24px 0 0; color: @mutedText; line-height: 1.8; }
+
 .path-section {
   padding: 130px 0;
   display: grid;
@@ -321,5 +352,7 @@ const { locale, t } = useI18n()
   .stats div { min-height: 110px; padding: 18px 8px; }
   .stats strong { font-size: 1.7rem; }
   .stats span { font-size: 0.58rem; text-align: center; }
+  .industry-callout { margin-top: 56px; padding: 30px 24px; }
+  .industry-heading { flex-direction: column; gap: 18px; }
 }
 </style>

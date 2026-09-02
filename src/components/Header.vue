@@ -6,7 +6,7 @@
         <span class="brand-copy">
           <strong>yuxuan zhang
 </strong>
-          <small>Game designer & Developer</small>
+          <small>{{ t('common.brandRole') }}</small>
         </span>
       </router-link>
 

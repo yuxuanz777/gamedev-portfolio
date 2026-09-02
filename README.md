@@ -19,6 +19,25 @@ npm run dev
 
 The development server prints its local URL in the terminal.
 
+## Visual text editor
+
+Start the local point-and-click editor with:
+
+```bash
+npm run edit
+```
+
+The command opens the local portfolio in the default browser. While editing is active, click ordinary visible English or Chinese text, choose its source location if the same copy appears more than once, and type directly on the page. Links, buttons, filters, language controls, and project cards keep their normal behavior so you can navigate to nested routes and open project details without pausing the editor. Hold Alt (Option on macOS) while clicking an interactive element to edit its label instead.
+
+The editor is available only on the local URL started by `npm run edit`; the published GitHub Pages URL does not include editing controls.
+
+The editor uses two explicit confirmations:
+
+1. **Save locally** writes all pending text changes back to their real files under `src/`. It does not create a Git commit.
+2. **Commit and publish** runs `npm run check`, commits only files saved by the editor, pushes the current source branch to `origin`, copies the production build into the sibling `../yuxuanz777.github.io` repository, and pushes that repository's `main` branch.
+
+Publishing is blocked when Git already has unrelated staged files. Commit or unstage them first so the editor cannot accidentally include unrelated work. The editor and its local API are only loaded by `npm run edit`; they are excluded from normal development and production builds.
+
 ## Quality checks
 
 Run the complete validation suite before publishing:
