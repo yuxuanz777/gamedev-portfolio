@@ -9,6 +9,10 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/resume',
     name: 'Resume',
+    beforeEnter: () => {
+      window.location.replace('/resume/')
+      return false
+    },
     component: () => import(/* webpackChunkName: "about" */ '../views/Resume.vue')
   },
   {

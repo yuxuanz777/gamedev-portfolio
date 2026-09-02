@@ -14,7 +14,7 @@
         <router-link to="/">{{ t('nav.about') }}</router-link>
         <router-link to="/game-projects">{{ t('nav.games') }}</router-link>
         <router-link to="/other-projects">{{ t('nav.other') }}</router-link>
-        <router-link to="/resume">{{ t('nav.resume') }}</router-link>
+        <a href="/resume/">{{ t('nav.resume') }}</a>
         <router-link to="/contact">{{ t('nav.contact') }}</router-link>
       </nav>
 
