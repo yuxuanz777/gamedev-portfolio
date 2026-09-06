@@ -113,10 +113,10 @@ onBeforeUnmount(() => {
 }
 
 .dialog {
-  --project-color: #b69457;
+  --project-color: #9de6bd;
   width: min(980px, 100%);
-  border: 1px solid color-mix(in srgb, var(--project-color) 60%, #b69457);
-  background: #0e1210;
+  border: 1px solid color-mix(in srgb, var(--project-color) 60%, #9de6bd);
+  background: #0b100d;
   box-shadow: 0 40px 120px rgba(0, 0, 0, 0.72), 0 0 60px color-mix(in srgb, var(--project-color) 8%, transparent);
 }
 
@@ -126,14 +126,14 @@ onBeforeUnmount(() => {
   display: flex;
   justify-content: space-between;
   gap: 30px;
-  border-bottom: 1px solid rgba(202, 174, 112, 0.16);
-  background: linear-gradient(135deg, color-mix(in srgb, var(--project-color) 14%, #101411), #0e1210 60%);
+  border-bottom: 1px solid @borderColor;
+  background: linear-gradient(135deg, color-mix(in srgb, var(--project-color) 11%, #0b100d), #0b100d 60%);
 }
 
 .dialog-kicker { color: @tealGlow; font-size: 0.66rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; }
 .dialog-header h2 { margin-top: 8px; font-size: clamp(1.45rem, 4vw, 2.5rem); }
-.dialog-close { width: 42px; height: 42px; flex: 0 0 auto; border: 1px solid rgba(202, 174, 112, 0.3); color: @goldBright; background: rgba(5, 8, 7, 0.4); font-size: 1.6rem; cursor: pointer; }
-.dialog-close:hover { border-color: @goldBright; background: rgba(202, 174, 112, 0.09); }
+.dialog-close { width: 42px; height: 42px; flex: 0 0 auto; border: 1px solid @borderColor; color: @tealGlow; background: rgba(5, 8, 6, 0.4); font-size: 1.6rem; cursor: pointer; }
+.dialog-close:hover { border-color: @tealGlow; background: rgba(157, 230, 189, 0.08); }
 .dialog-content { padding: 40px; color: #c5c1b7; line-height: 1.8; }
 .dialog-content .paragraph { margin: 0 0 28px; }
 .dialog-content strong { color: @headingColor; }
@@ -143,7 +143,7 @@ onBeforeUnmount(() => {
 .dialog-content iframe { width: 100%; min-height: 420px; border: 0; background: #050706; }
 .dialog-content .pc-screenshot { width: min(100%, 760px); margin: 12px auto; display: block; }
 .dialog-content .project-video { width: 100%; max-height: 600px; background: #050706; }
-.dialog-content .notice { padding: 17px 19px; border-left: 2px solid var(--project-color); background: rgba(202, 174, 112, 0.065); color: #c8c2b4; }
+.dialog-content .notice { padding: 17px 19px; border-left: 2px solid var(--project-color); background: rgba(157, 230, 189, 0.055); color: #c8d0ca; }
 .dialog-footer { padding: 0 40px 40px; display: flex; justify-content: center; }
 .dialog-fade-enter-active, .dialog-fade-leave-active { transition: opacity 180ms ease; }
 .dialog-fade-enter-from, .dialog-fade-leave-to { opacity: 0; }

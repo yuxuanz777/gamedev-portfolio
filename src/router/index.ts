@@ -4,7 +4,8 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/',
     name: 'Root',
-    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
+    meta: { immersive: true }
   },
   {
     path: '/resume',
@@ -36,6 +37,15 @@ const routes: RouteRecordRaw[] = [
     redirect: '/404'
   }
 ]
+
+if (import.meta.env.DEV || import.meta.env.MODE === 'design-lab') {
+  routes.splice(routes.length - 1, 0, {
+    path: '/design-lab',
+    name: 'Design Lab',
+    component: () => import('../views/DesignLab.vue'),
+    meta: { immersive: true }
+  })
+}
 
 const router = createRouter({
   history: createWebHashHistory(),

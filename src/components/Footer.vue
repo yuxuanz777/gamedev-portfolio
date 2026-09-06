@@ -1,9 +1,9 @@
 <template>
   <footer class="footer">
-    <div class="footer-ornament" aria-hidden="true"><span>◆</span></div>
+    <div class="footer-ornament" aria-hidden="true"><span>VII</span></div>
     <div class="footer-inner">
       <div>
-        <strong>Seven's world</strong>
+        <strong>Seven Zhang / Systems & Worlds</strong>
         <p>{{ t('footer.line') }}</p>
       </div>
       <div class="footer-links">
@@ -28,8 +28,8 @@ const { t } = useI18n()
 .footer {
   position: relative;
   margin-top: 80px;
-  border-top: 1px solid rgba(202, 174, 112, 0.16);
-  background: rgba(5, 8, 7, 0.72);
+  border-top: 1px solid @borderColor;
+  background: rgba(5, 8, 6, 0.82);
 }
 
 .footer-ornament {
@@ -38,7 +38,7 @@ const { t } = useI18n()
   top: 0;
   width: 110px;
   height: 1px;
-  background: linear-gradient(90deg, transparent, @gold, transparent);
+  background: linear-gradient(90deg, transparent, @tealGlow, transparent);
   transform: translateX(-50%);
 }
 
@@ -46,8 +46,10 @@ const { t } = useI18n()
   position: absolute;
   left: 50%;
   top: 0;
-  color: @goldBright;
-  font-size: 9px;
+  color: @tealGlow;
+  font-size: 7px;
+  font-weight: 800;
+  letter-spacing: 0.1em;
   transform: translate(-50%, -50%);
 }
 
@@ -62,7 +64,7 @@ const { t } = useI18n()
 }
 
 .footer strong {
-  color: @goldBright;
+  color: @tealGlow;
   font-family: @displayFont;
   font-size: 0.9rem;
   letter-spacing: 0.1em;
@@ -89,7 +91,7 @@ const { t } = useI18n()
   text-transform: uppercase;
 }
 
-.footer-links a:hover { color: @goldBright; }
+.footer-links a:hover { color: @tealGlow; }
 
 @media (max-width: 680px) {
   .footer-inner {

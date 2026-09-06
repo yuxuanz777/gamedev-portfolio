@@ -106,10 +106,10 @@ const translations: Record<Locale, Dictionary> = {
     contact: {
       eyebrow: 'Send a Raven',
       title: 'Let’s create something memorable.',
-      intro: 'I’m always glad to talk about game development, engine technology, research, literature, or a new opportunity.',
+      intro: 'I’m always glad to talk about game design, combat design, game development, engine technology, research, literature, or a new opportunity.',
       emailTitle: 'Email',
       socialTitle: 'Find me across the realms',
-      availability: 'Open to game development opportunities and collaborations.',
+      availability: 'Open to game design, combat design, and game development opportunities and collaborations.',
       response: 'Replies within 24 hours.'
     },
     footer: {
@@ -226,10 +226,10 @@ const translations: Record<Locale, Dictionary> = {
     contact: {
       eyebrow: '寄出渡鸦',
       title: '让我们一起创造值得记住的作品。',
-      intro: '无论是游戏开发、引擎技术、科研、文学，还是新的合作机会，我都很乐意与你交流。',
+      intro: '无论是游戏设计、战斗设计、游戏开发、引擎技术、科研、文学，还是新的合作机会，我都很乐意与你交流。',
       emailTitle: '电子邮箱',
       socialTitle: '在各个世界找到我',
-      availability: '目前开放游戏开发岗位与项目合作机会。',
+      availability: '目前开放游戏设计、战斗设计与游戏开发岗位及项目合作机会。',
       response: '通常会在 48 小时内回复。'
     },
     footer: {

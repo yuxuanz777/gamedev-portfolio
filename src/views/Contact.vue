@@ -8,7 +8,7 @@
     </div>
 
     <div class="contact-panel">
-      <span class="panel-rune" aria-hidden="true">◇</span>
+      <span class="panel-rune" aria-hidden="true">VII</span>
       <small>{{ t('contact.emailTitle') }}</small>
       <a class="email" href="mailto:yuxuanz7@usc.edu">yuxuanz7@usc.edu</a>
       <p>{{ t('contact.response') }}</p>
@@ -65,8 +65,8 @@ async function copyEmail() {
 .contact-copy .page-title { max-width: 670px; }
 .availability { margin-top: 32px; display: flex; align-items: center; gap: 10px; color: #b7c4c0; font-size: 0.78rem; }
 .availability i { width: 8px; height: 8px; border-radius: 50%; background: @tealGlow; box-shadow: 0 0 14px @tealGlow; }
-.contact-panel { position: relative; padding: clamp(34px, 6vw, 64px); border: 1px solid @borderColor; background: radial-gradient(circle at 90% 0, rgba(89, 170, 164, 0.11), transparent 36%), rgba(14, 18, 16, 0.8); box-shadow: 0 35px 90px rgba(0,0,0,.3); overflow: hidden; }
-.panel-rune { position: absolute; right: 28px; top: 20px; color: rgba(202,174,112,.14); font-size: 6rem; }
+.contact-panel { position: relative; padding: clamp(34px, 6vw, 64px); border: 1px solid @borderColor; background: radial-gradient(circle at 90% 0, rgba(157, 230, 189, 0.11), transparent 36%), rgba(11, 16, 13, 0.82); box-shadow: 0 35px 90px rgba(0,0,0,.3); clip-path: polygon(7% 0, 100% 0, 100% 92%, 93% 100%, 0 100%, 0 8%); overflow: hidden; }
+.panel-rune { position: absolute; right: 28px; top: 24px; color: rgba(157, 230, 189, .13); font-size: 3.8rem; font-weight: 800; letter-spacing: -.08em; }
 .contact-panel small { color: @tealGlow; font-size: .67rem; letter-spacing: .18em; text-transform: uppercase; }
 .email { margin-top: 16px; display: block; color: @goldBright; font-family: @displayFont; font-size: clamp(1.25rem, 3vw, 2.1rem); overflow-wrap: anywhere; }
 .contact-panel p { color: @mutedText; font-size: .8rem; }
@@ -75,8 +75,8 @@ async function copyEmail() {
 .social-section { grid-column: 1 / -1; margin-top: 80px; }
 .social-section h2 { margin-bottom: 28px; font-size: clamp(1.7rem, 3vw, 2.6rem); }
 .social-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
-.social-grid a { padding: 24px 20px; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 14px; border: 1px solid rgba(202,174,112,.17); color: @textColor; background: rgba(14,18,16,.65); }
-.social-grid a:hover { border-color: rgba(202,174,112,.45); background: rgba(202,174,112,.06); transform: translateY(-2px); }
+.social-grid a { padding: 24px 20px; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 14px; border: 1px solid @borderColor; color: @textColor; background: rgba(11,16,13,.72); }
+.social-grid a:hover { border-color: @tealGlow; background: rgba(157,230,189,.06); transform: translateY(-2px); }
 .social-grid i { color: @tealGlow; font-size: 1.25rem; }
 .social-grid strong, .social-grid small { display: block; }
 .social-grid strong { color: @headingColor; font-family: @displayFont; font-size: .82rem; }

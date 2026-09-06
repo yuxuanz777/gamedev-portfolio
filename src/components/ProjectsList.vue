@@ -27,6 +27,7 @@
         :style="{ '--accent': project.accentColor }"
         type="button"
         :aria-label="`${t('common.viewDetails')}: ${projectTitle(project)}`"
+        @pointermove="moveSpotlight"
         @click="showDetails(project)"
       >
         <img :src="project.iconUrl" :alt="projectTitle(project)" loading="lazy" />
@@ -81,6 +82,13 @@ function projectContent(project: ProjectData) {
   return localize(project.htmlDescription, locale.value)
 }
 
+function moveSpotlight(event: PointerEvent) {
+  const target = event.currentTarget as HTMLElement
+  const rect = target.getBoundingClientRect()
+  target.style.setProperty('--mouse-x', `${event.clientX - rect.left}px`)
+  target.style.setProperty('--mouse-y', `${event.clientY - rect.top}px`)
+}
+
 function showDetails(project: ProjectData) {
   selectedProject.value = project
   void router.replace({ query: { ...route.query, project: project.id } })
@@ -120,7 +128,7 @@ watch(() => route.query.project, (projectId) => {
 .filter-buttons { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; }
 .filter-buttons button {
   padding: 8px 13px;
-  border: 1px solid rgba(202, 174, 112, 0.18);
+  border: 1px solid @borderColor;
   color: @mutedText;
   background: rgba(14, 18, 16, 0.68);
   font: inherit;
@@ -130,22 +138,22 @@ watch(() => route.query.project, (projectId) => {
   transition: color 180ms ease, border-color 180ms ease, background 180ms ease;
 }
 .filter-buttons button:hover,
-.filter-buttons button.active { color: @goldBright; border-color: @gold; background: rgba(202, 174, 112, 0.1); }
+.filter-buttons button.active { color: @tealGlow; border-color: @tealGlow; background: rgba(157, 230, 189, 0.08); }
 
 .projects-list {
   display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-auto-flow: dense;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px;
 }
 
 .project-item {
   --accent: #b69457;
+  --mouse-x: 50%;
+  --mouse-y: 50%;
   position: relative;
-  grid-column: span 6;
-  min-height: 390px;
+  min-height: 340px;
   padding: 0;
-  border: 1px solid rgba(202, 174, 112, 0.2);
+  border: 1px solid @borderColor;
   color: @textColor;
   background: #0e1210;
   text-align: left;
@@ -154,9 +162,9 @@ watch(() => route.query.project, (projectId) => {
   isolation: isolate;
 }
 
-.project-item.wide { grid-column: span 8; }
-.project-item.high { min-height: 560px; }
-.project-item.wide + .project-item:not(.wide) { grid-column: span 4; }
+.project-item.wide,
+.project-item.high,
+.project-item.wide + .project-item:not(.wide) { min-height: 340px; }
 
 .project-item::before {
   content: '';
@@ -168,11 +176,24 @@ watch(() => route.query.project, (projectId) => {
   pointer-events: none;
 }
 
+.project-item::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0;
+  pointer-events: none;
+  background: radial-gradient(circle at var(--mouse-x) var(--mouse-y), rgba(157, 230, 189, 0.16), transparent 64%);
+  transition: opacity 180ms ease-out;
+}
+
 .project-item:hover::before,
 .project-item:focus-visible::before {
-  border-color: var(--accent);
-  box-shadow: inset 0 0 42px color-mix(in srgb, var(--accent) 13%, transparent);
+  border-color: @tealGlow;
+  box-shadow: inset 0 0 42px rgba(157, 230, 189, 0.07);
 }
+.project-item:hover::after,
+.project-item:focus-visible::after { opacity: 1; }
 
 .project-item img {
   position: absolute;
@@ -180,18 +201,18 @@ watch(() => route.query.project, (projectId) => {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: saturate(0.72) brightness(0.74);
+  filter: saturate(0.7) brightness(0.66);
   transition: transform 500ms cubic-bezier(.2,.7,.2,1), filter 300ms ease;
 }
 
 .project-item:hover img,
-.project-item:focus-visible img { transform: scale(1.045); filter: saturate(0.95) brightness(0.82); }
+.project-item:focus-visible img { transform: scale(1.025); filter: saturate(0.95) brightness(0.76); }
 
 .project-shade {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: linear-gradient(0deg, rgba(5, 8, 7, 0.98) 0%, rgba(5, 8, 7, 0.3) 70%, rgba(5, 8, 7, 0.14) 100%);
+  background: linear-gradient(0deg, rgba(5, 8, 6, 0.99) 0%, rgba(5, 8, 6, 0.35) 72%, rgba(5, 8, 6, 0.12) 100%);
 }
 
 .project-meta {
@@ -208,17 +229,18 @@ watch(() => route.query.project, (projectId) => {
 .project-title { color: @headingColor; font-family: @displayFont; font-size: clamp(1.3rem, 2.4vw, 2rem); line-height: 1.25; }
 .project-tags { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 7px; }
 .project-tags span { padding: 4px 7px; border: 1px solid rgba(216, 212, 200, 0.18); color: #bcb8ad; font-size: 0.64rem; letter-spacing: 0.06em; }
-.project-action { margin-top: 22px; color: @goldBright; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0; transform: translateY(8px); transition: opacity 180ms ease, transform 180ms ease; }
+.project-action { margin-top: 22px; color: @tealGlow; font-size: 0.68rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0; transform: translateY(8px); transition: opacity 180ms ease, transform 180ms ease; }
 .project-item:hover .project-action,
 .project-item:focus-visible .project-action { opacity: 1; transform: translateY(0); }
 .project-action b { margin-left: 5px; font-size: 0.9rem; }
 .empty-state { padding: 80px 0; color: @mutedText; text-align: center; }
 
 @media (max-width: 850px) {
+  .projects-list { grid-template-columns: 1fr; }
   .project-item,
   .project-item.wide,
-  .project-item.wide + .project-item:not(.wide) { grid-column: span 12; min-height: 420px; }
-  .project-item.high { min-height: 500px; }
+  .project-item.wide + .project-item:not(.wide),
+  .project-item.high { min-height: 380px; }
 }
 
 @media (max-width: 600px) {

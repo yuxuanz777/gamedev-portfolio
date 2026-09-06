@@ -1,26 +1,32 @@
 <template>
   <div id="app" class="app-shell">
-    <a class="skip-link" href="#main-content">{{ t('common.skip') }}</a>
-    <div class="ambient ambient-one" aria-hidden="true"></div>
-    <div class="ambient ambient-two" aria-hidden="true"></div>
-    <SiteHeader />
-    <main id="main-content" class="main">
+    <a v-if="!isImmersive" class="skip-link" href="#main-content">{{ t('common.skip') }}</a>
+    <template v-if="!isImmersive">
+      <div class="ambient ambient-one" aria-hidden="true"></div>
+      <div class="ambient ambient-two" aria-hidden="true"></div>
+      <SiteHeader />
+    </template>
+    <main id="main-content" class="main" :class="{ 'main--immersive': isImmersive }">
       <router-view v-slot="{ Component }">
         <transition name="page" mode="out-in">
           <component :is="Component" />
         </transition>
       </router-view>
     </main>
-    <SiteFooter />
+    <SiteFooter v-if="!isImmersive" />
   </div>
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
+import { useRoute } from 'vue-router'
 import SiteHeader from './components/Header.vue'
 import SiteFooter from './components/Footer.vue'
 import { useI18n } from './i18n'
 
 const { t } = useI18n()
+const route = useRoute()
+const isImmersive = computed(() => route.meta.immersive === true)
 </script>
 
 <style lang="less">
@@ -45,8 +51,8 @@ body {
   min-height: 100vh;
   margin: 0;
   background:
-    radial-gradient(circle at 18% 12%, rgba(52, 98, 88, 0.12), transparent 30%),
-    radial-gradient(circle at 82% 36%, rgba(143, 111, 53, 0.08), transparent 34%),
+    radial-gradient(circle at 18% 12%, rgba(157, 230, 189, 0.08), transparent 30%),
+    radial-gradient(circle at 82% 36%, rgba(226, 189, 114, 0.05), transparent 34%),
     @bodyBgColor;
   color: @textColor;
   font-family: @bodyFont;
@@ -60,11 +66,11 @@ body::before {
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  opacity: 0.22;
+  opacity: 0.34;
   background-image:
-    linear-gradient(rgba(255, 255, 255, 0.018) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.018) 1px, transparent 1px);
-  background-size: 46px 46px;
+    linear-gradient(rgba(157, 230, 189, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(157, 230, 189, 0.035) 1px, transparent 1px);
+  background-size: 52px 52px;
   mask-image: radial-gradient(circle at center, black, transparent 82%);
 }
 
@@ -77,7 +83,7 @@ a {
   transition: color 180ms ease, opacity 180ms ease;
 }
 
-a:hover { color: #f2d89f; }
+a:hover { color: #c0f6d5; }
 
 button,
 a,
@@ -97,7 +103,7 @@ h5 {
   margin: 0;
   color: @headingColor;
   font-family: @displayFont;
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1.15;
   text-wrap: balance;
 }
@@ -123,19 +129,23 @@ p { text-wrap: pretty; }
 .ambient-one {
   top: 18%;
   left: -260px;
-  background: rgba(41, 114, 108, 0.13);
+  background: rgba(157, 230, 189, 0.08);
 }
 
 .ambient-two {
   right: -280px;
   bottom: 12%;
-  background: rgba(155, 119, 57, 0.09);
+  background: rgba(226, 189, 114, 0.06);
 }
 
 .main {
   position: relative;
   z-index: 1;
   min-height: calc(100vh - 250px);
+}
+
+.main--immersive {
+  min-height: 100vh;
 }
 
 .page-shell {
@@ -156,7 +166,7 @@ p { text-wrap: pretty; }
   margin-bottom: 16px;
   color: @tealGlow;
   font-size: 0.7rem;
-  font-weight: 600;
+  font-weight: 800;
   letter-spacing: 0.22em;
   text-transform: uppercase;
 }
@@ -190,9 +200,9 @@ p { text-wrap: pretty; }
   align-items: center;
   justify-content: center;
   gap: 9px;
-  border: 1px solid @gold;
-  color: #10120f;
-  background: linear-gradient(135deg, @goldBright, #aa8445);
+  border: 1px solid @tealGlow;
+  color: #07100a;
+  background: @tealGlow;
   font-size: 0.76rem;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -205,18 +215,19 @@ p { text-wrap: pretty; }
 .button-primary:hover {
   color: #080a08;
   transform: translateY(-2px);
-  box-shadow: 0 10px 34px rgba(202, 174, 112, 0.18);
+  box-shadow: 0 10px 34px rgba(157, 230, 189, 0.16);
 }
 
 .button-ghost {
-  color: @goldBright;
+  border-color: @borderColor;
+  color: @tealGlow;
   background: rgba(8, 12, 10, 0.52);
 }
 
 .button-ghost:hover {
-  color: #f1d79d;
-  border-color: @goldBright;
-  background: rgba(202, 174, 112, 0.09);
+  color: #c0f6d5;
+  border-color: @tealGlow;
+  background: rgba(157, 230, 189, 0.08);
   transform: translateY(-2px);
 }
 

@@ -1,11 +1,10 @@
 <template>
   <header class="site-header">
     <div class="header-inner">
-      <router-link class="brand" to="/" aria-label="Yuxuan Zhang home">
-        <span class="brand-mark" aria-hidden="true"><span>Y</span></span>
+      <router-link class="brand" to="/" aria-label="Seven Zhang home">
+        <span class="brand-mark" aria-hidden="true"><span>VII</span></span>
         <span class="brand-copy">
-          <strong>yuxuan zhang
-</strong>
+          <strong>Seven Zhang</strong>
           <small>{{ t('common.brandRole') }}</small>
         </span>
       </router-link>
@@ -25,7 +24,7 @@
         :title="t('common.languageLabel')"
         @click="toggleLocale"
       >
-        <span class="language-rune" aria-hidden="true">◆</span>
+        <span class="language-rune" aria-hidden="true">ZH / EN</span>
         {{ t('common.language') }}
       </button>
     </div>
@@ -45,8 +44,8 @@ const { locale, t, toggleLocale } = useI18n()
   position: sticky;
   top: 0;
   z-index: 30;
-  border-bottom: 1px solid rgba(194, 164, 103, 0.18);
-  background: rgba(8, 11, 10, 0.82);
+  border-bottom: 1px solid @borderColor;
+  background: rgba(5, 8, 6, 0.84);
   backdrop-filter: blur(18px) saturate(130%);
 }
 
@@ -75,16 +74,17 @@ const { locale, t, toggleLocale } = useI18n()
   display: grid;
   place-items: center;
   transform: rotate(45deg);
-  border: 1px solid @gold;
-  background: linear-gradient(135deg, rgba(202, 174, 112, 0.16), rgba(62, 143, 139, 0.08));
-  box-shadow: inset 0 0 18px rgba(202, 174, 112, 0.08), 0 0 24px rgba(68, 159, 153, 0.08);
+  border: 1px solid @tealGlow;
+  background: rgba(157, 230, 189, 0.035);
+  box-shadow: inset 0 0 18px rgba(157, 230, 189, 0.05), 0 0 24px rgba(157, 230, 189, 0.08);
 }
 
 .brand-mark span {
   transform: rotate(-45deg);
-  color: @goldBright;
-  font-family: @displayFont;
-  font-weight: 700;
+  color: @tealGlow;
+  font-weight: 800;
+  font-size: 0.55rem;
+  letter-spacing: 0.08em;
 }
 
 .brand-copy {
@@ -95,7 +95,7 @@ const { locale, t, toggleLocale } = useI18n()
 
 .brand-copy strong {
   font-family: @displayFont;
-  color: @goldBright;
+  color: @headingColor;
   font-size: 0.88rem;
   letter-spacing: 0.09em;
   text-transform: uppercase;
@@ -135,14 +135,14 @@ const { locale, t, toggleLocale } = useI18n()
   bottom: 17px;
   width: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, @goldBright, transparent);
+  background: linear-gradient(90deg, transparent, @tealGlow, transparent);
   transform: translateX(-50%);
   transition: width 180ms ease;
 }
 
 .nav-bar a:hover,
 .nav-bar .router-link-exact-active {
-  color: @goldBright;
+  color: @tealGlow;
 }
 
 .nav-bar a:hover::after,
@@ -153,9 +153,9 @@ const { locale, t, toggleLocale } = useI18n()
 .language-switch {
   min-width: 72px;
   padding: 9px 12px;
-  border: 1px solid rgba(202, 174, 112, 0.42);
-  background: rgba(202, 174, 112, 0.06);
-  color: @goldBright;
+  border: 1px solid @borderColor;
+  background: rgba(157, 230, 189, 0.035);
+  color: @tealGlow;
   font: inherit;
   font-size: 0.72rem;
   letter-spacing: 0.1em;
@@ -164,16 +164,12 @@ const { locale, t, toggleLocale } = useI18n()
 }
 
 .language-switch:hover {
-  border-color: @goldBright;
-  background: rgba(202, 174, 112, 0.13);
+  border-color: @tealGlow;
+  background: rgba(157, 230, 189, 0.09);
   transform: translateY(-1px);
 }
 
-.language-rune {
-  margin-right: 6px;
-  color: @tealGlow;
-  font-size: 0.6rem;
-}
+.language-rune { margin-right: 6px; color: @mutedText; font-size: 0.55rem; }
 
 @media (max-width: 900px) {
   .header-inner {
