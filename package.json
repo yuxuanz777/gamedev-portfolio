@@ -6,7 +6,7 @@
     "dev": "vite",
     "edit": "vite --mode editor --open",
     "serve": "vite",
-    "build": "vue-tsc --noEmit && vite build",
+    "build": "vue-tsc --noEmit && vite build && node scripts/create-spa-fallback.mjs",
     "typecheck": "vue-tsc --noEmit",
     "lint": "eslint . --max-warnings=0",
     "check:assets": "node scripts/check-assets.mjs",

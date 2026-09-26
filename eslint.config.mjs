@@ -8,6 +8,7 @@ export default defineConfigWithVueTs(
   {
     ignores: [
       'dist/**',
+      '.local-preview-*/**',
       'node_modules/**',
       'node_modules-vue2-backup/**',
       'tools/text-editor/**'

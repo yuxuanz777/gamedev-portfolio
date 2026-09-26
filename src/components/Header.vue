@@ -17,6 +17,26 @@
         <router-link to="/contact">{{ t('nav.contact') }}</router-link>
       </nav>
 
+      <div class="header-actions">
+      <button
+        class="sound-switch"
+        :class="{ on: soundEnabled }"
+        type="button"
+        data-sfx-silent
+        :aria-pressed="soundEnabled"
+        :aria-label="soundLabel"
+        :title="soundLabel"
+        @click="setSoundEnabled(!soundEnabled)"
+      >
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 9.5h3.5L12 5.5v13l-4.5-4H4z" />
+          <g class="sound-waves">
+            <path d="M15.5 9a4 4 0 0 1 0 6" />
+            <path d="M18 6.5a7.5 7.5 0 0 1 0 11" />
+          </g>
+          <path class="sound-mute" d="M16 9.5l5 5m0-5l-5 5" />
+        </svg>
+      </button>
       <button
         class="language-switch"
         type="button"
@@ -27,14 +47,21 @@
         <span class="language-rune" aria-hidden="true">ZH / EN</span>
         {{ t('common.language') }}
       </button>
+      </div>
     </div>
   </header>
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
 import { useI18n } from '@/i18n'
+import { useSound } from '@/audio/sfx'
 
 const { locale, t, toggleLocale } = useI18n()
+const { soundEnabled, setSoundEnabled } = useSound()
+const soundLabel = computed(() => locale.value === 'zh'
+  ? (soundEnabled.value ? '关闭音效' : '开启音效')
+  : (soundEnabled.value ? 'Turn sound off' : 'Turn sound on'))
 </script>
 
 <style scoped lang="less">
@@ -121,10 +148,10 @@ const { locale, t, toggleLocale } = useI18n()
   padding: 28px 0 24px;
   color: @mutedText;
   opacity: 1;
-  font-size: 0.75rem;
+  font-family: @displayFont;
+  font-size: 0.86rem;
   font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  letter-spacing: 0.06em;
   transition: color 180ms ease;
 }
 
@@ -169,6 +196,29 @@ const { locale, t, toggleLocale } = useI18n()
   transform: translateY(-1px);
 }
 
+.header-actions { display: flex; align-items: center; gap: 10px; }
+
+.sound-switch {
+  width: 40px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border: 1px solid @borderColor;
+  color: @mutedText;
+  background: rgba(157, 230, 189, 0.035);
+  cursor: pointer;
+  transition: color 180ms ease, border-color 180ms ease, background 180ms ease;
+}
+.sound-switch svg { width: 20px; height: 20px; fill: none; stroke: currentColor; stroke-width: 1.6; stroke-linecap: round; stroke-linejoin: round; }
+.sound-switch svg > path:first-child { fill: currentColor; stroke: none; }
+.sound-waves { opacity: 0; }
+.sound-switch.on { color: @goldBright; border-color: rgba(226, 189, 114, 0.5); }
+.sound-switch.on .sound-waves { opacity: 1; animation: sound-pulse 1.6s ease-in-out infinite; }
+.sound-switch.on .sound-mute { opacity: 0; }
+.sound-switch:hover { color: @tealGlow; border-color: @tealGlow; }
+@keyframes sound-pulse { 50% { opacity: 0.45; } }
+@media (prefers-reduced-motion: reduce) { .sound-switch.on .sound-waves { animation: none; } }
+
 .language-rune { margin-right: 6px; color: @mutedText; font-size: 0.55rem; }
 
 @media (max-width: 900px) {
@@ -201,7 +251,7 @@ const { locale, t, toggleLocale } = useI18n()
 @media (max-width: 480px) {
   .brand-copy small { display: none; }
   .brand-mark { width: 32px; height: 32px; }
-  .nav-bar { gap: 18px; }
-  .nav-bar a { font-size: 0.68rem; }
+  .nav-bar { gap: 14px; }
+  .nav-bar a { font-size: 0.74rem; letter-spacing: 0.02em; }
 }
 </style>
