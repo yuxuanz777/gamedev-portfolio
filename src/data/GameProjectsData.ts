@@ -14,8 +14,8 @@ export default [
           <li>Created boss phases and enemy AI with Behavior Trees and State Trees</li>
           <li>Authored the design and technical documentation that keeps the project architecture and combat goals aligned</li>
         </ul></div>
-        <div class="paragraph center"><iframe width="560" height="315" src="https://player.bilibili.com/player.html?bvid=BV1QTcTzREjj&autoplay=0" title="Return to Azeroth gameplay demo" allowfullscreen></iframe></div>
-        <div class="paragraph"><div class="notice"><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1QTcTzREjj/">Watch the video demo</a></div></div>`,
+        <div class="paragraph center"><iframe width="560" height="315" src="https://www.youtube.com/embed/Kq5FcPYjkuA" title="Return to Azeroth gameplay demo" allowfullscreen></iframe></div>
+        <div class="paragraph"><div class="notice"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Kq5FcPYjkuA">Watch the video demo</a></div></div>`,
       zh: `
         <div class="paragraph"><strong>重返艾泽拉斯</strong> 是一款魔兽同人动作角色扮演游戏，以类魂战斗框架重新演绎原作内容。这个 Unreal Engine 5 个人项目的设计与技术实现均由我负责。</div>
         <div class="paragraph"><strong>设计与工程亮点</strong><ul>
@@ -24,8 +24,8 @@ export default [
           <li>结合行为树与状态树实现 Boss 阶段和敌人 AI</li>
           <li>编写设计与技术文档，使项目架构始终服务于战斗体验目标</li>
         </ul></div>
-        <div class="paragraph center"><iframe width="560" height="315" src="https://player.bilibili.com/player.html?bvid=BV1QTcTzREjj&autoplay=0" title="重返艾泽拉斯游戏演示" allowfullscreen></iframe></div>
-        <div class="paragraph"><div class="notice"><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1QTcTzREjj/">观看视频演示</a></div></div>`
+        <div class="paragraph center"><iframe width="560" height="315" src="https://www.youtube.com/embed/Kq5FcPYjkuA" title="重返艾泽拉斯游戏演示" allowfullscreen></iframe></div>
+        <div class="paragraph"><div class="notice"><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=Kq5FcPYjkuA">观看视频演示</a></div></div>`
     },
     '#6aa69b',
     false,
