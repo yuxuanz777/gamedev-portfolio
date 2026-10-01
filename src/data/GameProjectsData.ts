@@ -4,13 +4,14 @@ export default [
   new ProjectData(
     'return-to-azeroth',
     { en: 'Return to Azeroth · Unreal Engine 5', zh: '重返艾泽拉斯 · Unreal Engine 5' },
-    '/img/projects/return-to-azeroth-cover.jpg',
+    '/img/projects/return-to-azeroth-cover-v2.jpg',
     {
       en: `
         <div class="paragraph"><strong>Return to Azeroth</strong> is a Warcraft fan-made action RPG that reframes the IP in a Souls-like combat structure. I own both the design and technical implementation of this personal Unreal Engine 5 project.</div>
         <div class="paragraph"><strong>Design & engineering highlights</strong><ul>
           <li>Built responsive character 3C, dynamic combo attacks, parry, and multidirectional dodge through rapid Blueprint prototyping followed by C++ optimization</li>
           <li>Used Gameplay Ability System for scalable ability activation, Attribute Sets, and Gameplay Effects</li>
+          <li>Building out the level, item, and skill systems: playable levels, an item system, and a GAS-based skill system layered on the combat foundation</li>
           <li>Created boss phases and enemy AI with Behavior Trees and State Trees</li>
           <li>Authored the design and technical documentation that keeps the project architecture and combat goals aligned</li>
         </ul></div>
@@ -21,6 +22,7 @@ export default [
         <div class="paragraph"><strong>设计与工程亮点</strong><ul>
           <li>先使用蓝图快速验证，再以 C++ 优化，完成灵敏的角色 3C、动态连招、弹反与多方向闪避</li>
           <li>使用 Gameplay Ability System 搭建可扩展的技能激活、属性集与 Gameplay Effects</li>
+          <li>推进关卡、物品与技能系统的制作：搭建可游玩关卡、物品系统，以及基于 GAS、建立在战斗框架之上的技能系统</li>
           <li>结合行为树与状态树实现 Boss 阶段和敌人 AI</li>
           <li>编写设计与技术文档，使项目架构始终服务于战斗体验目标</li>
         </ul></div>

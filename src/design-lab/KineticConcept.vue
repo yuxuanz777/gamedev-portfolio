@@ -183,7 +183,7 @@ function resetMagnet(event: PointerEvent) {
   --signal: #9de6bd;
   --ember: #e2bd72;
   --ease: cubic-bezier(.2, .7, .2, 1);
-  --wrap: min(1200px, calc(100% - 64px));
+  --wrap: min(1480px, calc(100% - clamp(64px, 8vw, 180px)));
   position: relative;
   min-height: 100vh;
   overflow: clip;
@@ -281,7 +281,7 @@ function resetMagnet(event: PointerEvent) {
 
 .kinetic-sigil {
   position: relative;
-  width: min(100%, 560px);
+  width: min(100%, 640px);
   justify-self: end;
   opacity: 0;
   transform: scale(0.6) rotate(-40deg);

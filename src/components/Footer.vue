@@ -63,7 +63,7 @@ const year = new Date().getFullYear()
 }
 
 .footer-inner {
-  max-width: @contentWidth;
+  max-width: calc(@contentWidth + 56px);
   margin: 0 auto;
   padding: 42px 28px 36px;
   display: flex;
@@ -87,7 +87,7 @@ const year = new Date().getFullYear()
 .footer-mark span { transform: rotate(-45deg); color: @goldBright; font-size: 0.5rem; font-weight: 800; letter-spacing: 0.08em; }
 
 .footer-base {
-  max-width: @contentWidth;
+  max-width: calc(@contentWidth + 56px);
   margin: 0 auto;
   padding: 18px 28px 28px;
   display: flex;

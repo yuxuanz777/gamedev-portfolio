@@ -35,14 +35,14 @@ interface LabCopy {
 export const designLabCopy: Record<LabLocale, LabCopy> = {
   en: {
     nav: ['Profile', 'Selected work', 'Experience'],
-    role: 'Combat Designer · Game Developer',
+    role: 'Game Designer · Game Engineer',
     availability: 'Los Angeles · Open to opportunities',
-    heroTitle: 'I design combat that players can read, feel, and master.',
-    heroLead: 'I’m Seven (Yuxuan) Zhang, a USC computer science graduate student building responsive combat, expressive game systems, and the technology behind them.',
+    heroTitle: 'I design and build game systems that players can read, feel, and master.',
+    heroLead: 'I’m Seven (Yuxuan) Zhang, a USC computer science graduate student designing and engineering gameplay — combat, levels, items, and skills — and the technology behind them.',
     viewWork: 'View my work',
     contact: 'Contact me',
     selectedWork: 'Selected worlds',
-    workIntro: 'Four projects that connect combat design, hands-on implementation, and technical systems thinking.',
+    workIntro: 'Four projects that connect game design, hands-on engineering, and systems thinking.',
     experience: 'Industry experience',
     experienceRole: 'Combat Designer Intern',
     experienceStudio: 'NetEase Leihuo · Justice Online Mobile · MMO',
@@ -57,10 +57,10 @@ export const designLabCopy: Record<LabLocale, LabCopy> = {
     projects: [
       {
         title: 'Return to Azeroth',
-        discipline: 'Personal project · Combat design & engineering',
+        discipline: 'Personal project · Game design & engineering',
         date: '2026 —',
-        description: 'A Warcraft fan-made action RPG reframed through Souls-like combat, built in Unreal Engine 5 with C++, Blueprint, GAS, boss phases, and enemy AI.',
-        image: '/img/projects/return-to-azeroth-cover.jpg',
+        description: 'A Warcraft fan-made action RPG with Souls-like combat, built in Unreal Engine 5 with C++, Blueprint, and GAS — now growing its level, item, and skill systems alongside boss phases and enemy AI.',
+        image: '/img/projects/return-to-azeroth-cover-v2.jpg',
         brandIcon: '/img/brand/vii-stormwind-v2.png',
         tags: ['Unreal Engine 5', 'C++', 'GAS']
       },
@@ -96,14 +96,14 @@ export const designLabCopy: Record<LabLocale, LabCopy> = {
   },
   zh: {
     nav: ['个人简介', '精选作品', '行业经历'],
-    role: '战斗策划 · 游戏开发者',
+    role: '游戏策划 · 游戏工程师',
     availability: '洛杉矶 · 开放工作与合作机会',
-    heroTitle: '设计让玩家看得懂、感受得到、值得精通的战斗。',
-    heroLead: '我是张宇瑄，南加州大学计算机科学硕士研究生，专注于富有反馈的战斗、具有表现力的玩法系统，以及支撑它们运转的技术。',
+    heroTitle: '设计并实现让玩家看得懂、感受得到、值得精通的游戏系统。',
+    heroLead: '我是张宇瑄，南加州大学计算机科学硕士研究生，专注于玩法的设计与工程实现——战斗、关卡、物品与技能，以及支撑它们运转的技术。',
     viewWork: '查看作品',
     contact: '联系我',
     selectedWork: '精选世界',
-    workIntro: '四个代表项目，连接战斗设计、亲手实现与技术系统思维。',
+    workIntro: '四个代表项目，连接游戏设计、工程实现与系统思维。',
     experience: '行业经历',
     experienceRole: '战斗策划实习生',
     experienceStudio: '网易雷火 · 《逆水寒》手游 · MMO',
@@ -118,10 +118,10 @@ export const designLabCopy: Record<LabLocale, LabCopy> = {
     projects: [
       {
         title: '重返艾泽拉斯',
-        discipline: '个人项目 · 战斗设计与工程实现',
+        discipline: '个人项目 · 游戏设计与工程实现',
         date: '2026 —',
-        description: '使用 Unreal Engine 5、C++、Blueprint 与 GAS，将魔兽同人世界重构为强调读招、格挡与节奏的类魂动作 RPG。',
-        image: '/img/projects/return-to-azeroth-cover.jpg',
+        description: '使用 Unreal Engine 5、C++、Blueprint 与 GAS，将魔兽同人世界重构为类魂动作 RPG，目前正推进关卡、物品与技能系统的制作。',
+        image: '/img/projects/return-to-azeroth-cover-v2.jpg',
         brandIcon: '/img/brand/vii-stormwind-v2.png',
         tags: ['Unreal Engine 5', 'C++', 'GAS']
       },

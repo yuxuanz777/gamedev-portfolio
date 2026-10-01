@@ -16,7 +16,7 @@ const translations: Record<Locale, Dictionary> = {
       contact: 'Contact'
     },
     common: {
-      brandRole: 'Game Designer & Developer',
+      brandRole: 'Game Designer & Engineer',
       language: '中文',
       languageLabel: 'Switch language to Chinese',
       viewWork: 'View my work',
@@ -31,10 +31,10 @@ const translations: Record<Locale, Dictionary> = {
       skip: 'Skip to content'
     },
     about: {
-      eyebrow: 'Combat designer · game developer · independent world creator',
+      eyebrow: 'Game designer · game engineer · independent world creator',
       title: 'I forge playable worlds from code, systems, and imagination.',
-      lead: 'Hi, I’m Seven (Yuxuan) Zhang, an MSCS student at USC focused on game design & development. I build responsive combat, expressive mechanics, and the technology that makes imagined worlds feel real.',
-      quest: 'Seeking game design & development opportunities',
+      lead: 'Hi, I’m Seven (Yuxuan) Zhang, an MSCS student at USC focused on game design & engineering. I design and build gameplay systems — combat, levels, items, and skills — and the technology that makes imagined worlds feel real.',
+      quest: 'Seeking game design & engineering opportunities',
       location: 'Los Angeles · Available worldwide',
       gamesStat: 'Game projects',
       enginesStat: 'Game engines',
@@ -106,10 +106,10 @@ const translations: Record<Locale, Dictionary> = {
     contact: {
       eyebrow: 'Send a Raven',
       title: 'Let’s create something memorable.',
-      intro: 'I’m always glad to talk about game design, combat design, game development, engine technology, research, literature, or a new opportunity.',
+      intro: 'I’m always glad to talk about game design, gameplay engineering, game development, engine technology, research, literature, or a new opportunity.',
       emailTitle: 'Email',
       socialTitle: 'Find me across the realms',
-      availability: 'Open to game design, combat design, and game development opportunities and collaborations.',
+      availability: 'Open to game design, gameplay engineering, and game development opportunities and collaborations.',
       response: 'Replies within 24 hours.'
     },
     footer: {
@@ -136,7 +136,7 @@ const translations: Record<Locale, Dictionary> = {
       contact: '联系方式'
     },
     common: {
-      brandRole: '游戏策划与开发者',
+      brandRole: '游戏策划与工程师',
       language: 'EN',
       languageLabel: '切换语言为英文',
       viewWork: '查看作品',
@@ -151,10 +151,10 @@ const translations: Record<Locale, Dictionary> = {
       skip: '跳到主要内容'
     },
     about: {
-      eyebrow: '战斗策划 · 游戏开发者 · 独立世界构筑者',
+      eyebrow: '游戏策划 · 游戏工程师 · 独立世界构筑者',
       title: '以代码、系统与想象力，锻造可以亲身踏入的世界。',
-      lead: '我是张宇瑄，南加州大学计算机科学硕士研究生，专注于游戏开发。我热衷于打造富有反馈的战斗、具有表现力的玩法机制，以及让幻想世界真正运转起来的技术。',
-      quest: '正在寻找游戏开发相关机会',
+      lead: '我是张宇瑄，南加州大学计算机科学硕士研究生，专注于游戏设计与工程实现。我设计并搭建玩法系统——战斗、关卡、物品与技能，以及让幻想世界真正运转起来的技术。',
+      quest: '正在寻找游戏策划与工程相关机会',
       location: '洛杉矶 · 接受全球合作',
       gamesStat: '游戏项目',
       enginesStat: '游戏引擎',
@@ -226,10 +226,10 @@ const translations: Record<Locale, Dictionary> = {
     contact: {
       eyebrow: '寄出渡鸦',
       title: '让我们一起创造值得记住的作品。',
-      intro: '无论是游戏设计、战斗设计、游戏开发、引擎技术、科研、文学，还是新的合作机会，我都很乐意与你交流。',
+      intro: '无论是游戏设计、玩法工程、游戏开发、引擎技术、科研、文学，还是新的合作机会，我都很乐意与你交流。',
       emailTitle: '电子邮箱',
       socialTitle: '在各个世界找到我',
-      availability: '目前开放游戏设计、战斗设计与游戏开发岗位及项目合作机会。',
+      availability: '目前开放游戏策划、玩法工程与游戏开发岗位及项目合作机会。',
       response: '通常会在 48 小时内回复。'
     },
     footer: {

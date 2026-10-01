@@ -78,7 +78,7 @@ const soundLabel = computed(() => locale.value === 'zh'
 
 .header-inner {
   min-height: 76px;
-  max-width: @contentWidth;
+  max-width: calc(@contentWidth + 56px);
   margin: 0 auto;
   padding: 0 28px;
   display: grid;

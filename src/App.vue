@@ -50,6 +50,9 @@ watch(() => route.path, (to, from) => {
 html {
   min-width: 320px;
   font-size: 106.25%;
+
+  @media (min-width: 1680px) { font-size: 112.5%; }
+  @media (min-width: 2200px) { font-size: 118.75%; }
   background: @bodyBgColor;
   scroll-behavior: smooth;
 }
@@ -160,7 +163,7 @@ p { text-wrap: pretty; }
 .page-shell {
   position: relative;
   isolation: isolate;
-  width: min(@contentWidth, calc(100% - 56px));
+  width: ~"min(@{contentWidth}, calc(100% - clamp(56px, 8vw, 180px)))";
   margin: 0 auto;
   padding: 88px 0 40px;
 }
